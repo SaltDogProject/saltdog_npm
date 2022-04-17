@@ -1,0 +1,15 @@
+{
+    "name": "saltdog",
+    "version": "0.0.1",
+    "description": "TypeScript definitions for saltdog-plugin",
+    "homepage": "https://github.com/SaltdogProject/saltdog_npm",
+    "license": "MIT",
+    "main": "index.ts",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SaltdogProject/saltdog_npm"
+    },
+    "scripts": {},
+    "dependencies": {}
+}
