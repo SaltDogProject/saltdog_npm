@@ -1,2 +1,5 @@
-在本文件夹执行 npm link
-在插件文件夹执行 npm link @types/saltdog
+# Saltdog
+
+This package is used to provide type definitation for saltdog plugin developers.
+
+Implements are in (here)[https://github.com/SaltDogProject/SaltDog/tree/main/src/pluginHost/api]
