@@ -4,6 +4,7 @@
     "description": "TypeScript definitions for saltdog plugin",
     "homepage": "https://github.com/SaltdogProject/saltdog_npm",
     "license": "MIT",
+    "type":"module",
     "main": "index.ts",
     "types": "index.d.ts",
     "repository": {
