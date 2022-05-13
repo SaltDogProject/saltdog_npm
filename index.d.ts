@@ -70,7 +70,38 @@ declare module 'saltdog' {
          */
         getSidebarView: (viewName: string) => sidebar | null;
     };
-    // export const getCurrentPDFView: () => ISaltDogPDFView | null;
+
+    interface StatusBar {
+        readonly id: string;
+        readonly alignment: StatusBarAlignment;
+        command: string | null;
+        text: string | null;
+        tooltip: string | null;
+        readonly priority: number;
+        color: string | null;
+        backgroundColor: string | null;
+        /**
+         * Show the StatusBarItem in Statusbar
+         */
+        show: () => void;
+        /**
+         * Hide the StatusBarItem in Statusbar
+         */
+        hide: () => void;
+    }
+    enum StatusBarAlignment {
+        Right = 0,
+        Left = 1,
+    }
+    export const statusbar: {
+        /**
+         * @param id StatusBar's identifier, cannot change after created.
+         * @param alignment (optional) StatusBarAlignment.Left or Right Default: Right
+         * @param priority (optional) The order in Left/Right. Default:0
+         * @returns `StatusBar`
+         */
+        createStatusBarItem(id: string, alignment?: StatusBarAlignment, priority?: number): StatusBar;
+    };
 }
 interface ISaltDogPDFView {
     id: string;
