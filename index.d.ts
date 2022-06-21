@@ -102,6 +102,46 @@ declare module 'saltdog' {
          */
         createStatusBarItem(id: string, alignment?: StatusBarAlignment, priority?: number): StatusBar;
     };
+
+    interface ILibraryInfoProvider {
+        beforeRetrieve?: (retrieveConfig: { type: string; data: string }) => { type: string; data: string };
+        afterRetrieve?: (data: any) => any;
+    }
+    interface ILibraryDisplayElement {
+        displayType?: 'tag' | 'text';
+        text: string;
+        color?: string;
+        backgroundColor?: string;
+    }
+    interface ILibraryCustomField {
+        [props: string]: ILibraryDisplayElement;
+    }
+    interface ILibraryDisplayTableRow {
+        id: number;
+        itemType?: string;
+        name?: string;
+        type: 'item' | 'dir';
+        customFields?: ILibraryCustomField;
+        [props: string]: any;
+    }
+    interface ILibraryDisplayTableColumn {
+        indexName: string;
+        displayName: string;
+    }
+    interface ILibraryDisplayTable {
+        column: ILibraryDisplayTableColumn[];
+        row: ILibraryDisplayTableRow[];
+    }
+    export const library: {
+        /**
+         * @param infoProvider ILibraryInfoProvider, contains `beforeRetrieve` and `afterRetrive` hooks.
+         */
+        registerInfoProvider(infoProvider: ILibraryInfoProvider): any;
+        /**
+         *
+         */
+        registerDisplayProvider(displayProvider: (data: ILibraryDisplayTable) => any): any;
+    };
 }
 interface ISaltDogPDFView {
     id: string;
